@@ -1,45 +1,39 @@
 function sortNumbers(numOne, numTwo, numThree) {
-    let one = 0;
-    let two = 0;
-    let three = 0;
 
     if (numOne > numTwo && numOne > numThree) {
-        one = numOne;
+       console.log(numOne);
 
         if (numTwo > numThree) {
-            two = numTwo;
-            three = numThree;
+            console.log(numTwo);
+            console.log(numThree);
         } else {
-            two = numThree;
-            three = numTwo;
+            console.log(numThree);
+            console.log(numTwo);
         }
 
     } else if (numTwo > numOne && numTwo > numThree) {
-        one = numTwo;
+        console.log(numTwo);
 
         if (numOne > numThree) {
-            two = numOne;
-            three = numThree;
+            console.log(numOne);
+            console.log(numThree);
         } else {
-            two = numThree;
-            three = numOne;
+            console.log(numThree);
+            console.log(numOne);
         }
 
     } else if (numThree > numOne && numThree > numTwo) {
-        one = numThree;
+        console.log(numThree);
 
         if (numOne > numTwo) {
-            two = numOne;
-            three = numTwo;
+            console.log(numOne);
+            console.log(numTwo);
         } else {
-            two = numTwo;
-            three = numThree;
+            console.log(numTwo);
+            console.log(numOne);
         }
     }
 
-    console.log(one);
-    console.log(two);
-    console.log(three);
 }
 sortNumbers(0,
     0,
