@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(255, 227, 194);
+}
+
+h1 {
+    font-family: Arial;
+    color: rgb(48, 19, 0);
+}
+
+p {
+    font-family: Arial;
+    color: rgb(48, 19, 0);
+}
+
+a {
+    font-family: Arial;
+    font-style: italic;
+}
+
+p.additionalInfo {
+    font-weight: bold;
+}
+
+ul {
+    font-style: italic;
+}
