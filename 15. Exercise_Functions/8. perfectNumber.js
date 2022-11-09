@@ -1,9 +1,16 @@
 function perfectNumber(number) {
 
-    let isPerfect = true;
+    let isPerfect = false;
+    let sum = 0;
 
-    if (number % 2 === 0) {
-        
+    for (let i = 1; i < number; i ++) {
+        if (number % i === 0) {
+            sum += i;
+        }
+    }
+
+    if (sum === number) {
+        isPerfect = true;
     }
 
     if(isPerfect) {
@@ -13,4 +20,4 @@ function perfectNumber(number) {
     }
     
 }
-perfectNumber(28);
+perfectNumber(6);
