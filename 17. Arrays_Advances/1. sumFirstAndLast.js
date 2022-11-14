@@ -1,5 +1,5 @@
 function sumFirstAndLast(array) {
-    let firstNum = Number(array.shift());
+    let firstNum = Number(array[0]);
     let lastNum = Number(array.pop());
 
     const sum = (a, b) => a + b;
