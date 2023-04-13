@@ -1,29 +1,41 @@
 function buildingWallExpences(parameters) {
-    //30ft wall
-    //input.lenght = sections of the wall
-    //input.length alos represents the miles of the wall
-    //each section represents the haight in ft
-    //each section has crew
-    //the crew adds 1ft a day (haight)
-    //they use 195cb yards of concrete per 1ft
-    //when they complete they section, they leave
+  let crews = parameters.slice().map(Number);
+  let concreteCostPerFoot = 195;
+  let neededHeight = 30;
+  let totalCost = 0;
+  let dailyCostArr = [];
+  let isBuild = false;
 
-    // how much concrete is used daily?
-    // what is the final cost for concrete?
-    // one cb. yard = 1900pesos
+  while (!isBuild) {
+    let dailyCost = 0;
 
-    let wallCost = 0;
-    let oneCubicYardPrice = 1900
+    for (let i = 0; i < crews.length; i++) {
+      if (crews[i] === neededHeight) {
+        let index = crews.indexOf(crews[i]);
+        crews.splice(index, 1);
 
-    let sectionsNumber = parameters.length;
-    //cycle for each of the workers -> then count the daily cost - some kind of cycle in cycle
-    while (all < 30) {
-        let dailyCost = 0;
-        for (const crew of parameters) {
-            dailyCost += oneCubicYardPrice;
-            
+        if (crews.length === 0) {
+          isBuild = true;
+          break;
         }
+
+        i --;
+      } else {
+        crews[i] ++;
+        dailyCost ++;
+      }
     }
+
+    if (isBuild) {
+      break;
+    }
+
+    dailyCostArr.push(dailyCost * concreteCostPerFoot);
+    totalCost += dailyCost * concreteCostPerFoot * 1900;
+  }
+
+  console.log(dailyCostArr.join(' '));
+  console.log(`${totalCost} pesos`);
 }
 buildingWallExpences([21, 25, 28]);
 buildingWallExpences([17]);
