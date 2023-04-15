@@ -1,50 +1,65 @@
-function spiralTheMatrix(row, col) {
-  let top = 0;
-  let bottom = row - 1;
-  let left = 0;
-  let right = col - 1;
+function spiralMatrixVTwo(row, col) {
+    let resultArray = [];
 
-  let matrixArr = [];
-  let direction = 0; // 0 moves -> right; 1 moves - down; 2 moves <- left; 3 moves - up
-//   let index = 1;
+    //create the matrix
+    // let matrix = [];
+    // let currentLine = 1;
+    // let currentNum = 1;
+    // while (currentLine <= col) {
+    //     let currentArr = [];
+        
+    //     for (let i = 1; i <= row; i ++) {
+    //         currentArr.push(currentNum);
+    //         currentNum ++;
+    //     }
+    //     matrix.push(currentArr);
+    //     currentLine ++;
+    // }
 
-  while (top <= bottom && left <= right) {
-    switch (direction % 4) {
-        case 0: 
-            for (let col = left; col <= right; col ++) {
-                matrixArr.push([top][col]);
-                // index ++;
-            }
-            top ++;
-            direction ++;
-            break;
-        case 1: 
-            for (let row = top; row <= bottom; row ++) {
-                matrixArr.push([row][right]);
-                // index ++;
-            }
-            right --;
-            direction ++;
-            break;
-        case 2: 
-            for (let col = right; col >= left; col --) {
-                matrixArr.push([bottom][col]);
-                // index ++;
-            }
-            bottom --;
-            direction ++;
-            break;
-        case 3: 
-            for (let row = bottom; row >= top; row --) {
-                matrixArr.push([row][left]);
-                //index ++;
-            }
-            left ++;
-            direction ++;
-            break;
+    for (let i = 0; i < row; i ++) {
+        resultArray[i] = [];
+
+        for (let j = 0; j < col; j ++) {
+            resultArray[i][j] = 0;
+        }
     }
-  }
-  let returnResult = matrixArr.map((r) => r.join(' ')).join('\n');
-  console.log(returnResult);
+
+    //create the spiral  (&& resultArray.length < matrixSize)
+    let top = 0;
+    let left = 0;
+    let bottom = row -1;
+    let right = col - 1;
+    let counter = 1; //what number are we pushing in
+
+    while (top <= bottom && left <= right) {
+        //top row
+        for (let i = left; i <= right; i ++) {
+            resultArray[top][i] = counter;
+            counter ++;
+        }
+        top ++;
+        //right-top to bottom column
+        for (let i = top; i <= bottom; i ++) {
+            resultArray[i][right] = counter;
+            counter ++;
+        }
+        right --;
+        //right to left row
+        for (let i = right; i >= left; i --) {
+            resultArray[bottom][i] = counter;
+            counter ++;
+        }
+        bottom --;
+        //left-bottom to top column
+        for (let i = bottom; i >= top; i --) {
+            resultArray[i][left] = counter;
+            counter ++;
+        }
+        left ++;
+    }
+
+    console.log(resultArray.map((a) => a.join(' ')).join('\n'));
 }
-spiralTheMatrix(5, 5);
+spiralMatrixVTwo(4, 5);
+spiralMatrixVTwo(3, 2);
+
