@@ -1,5 +1,5 @@
 function wordOccurrance (wordsArray) {
-    let words = {};
+    let words = new Map();
 
     for (const word of wordsArray) {
         if (!words[word]) {
